@@ -96,7 +96,7 @@ export default function ProductDetails() {
                 </div>
 
 
-                <div className="social-buttons d-flex gap-2 justify-content-end">
+                <div className="buttons d-flex gap-2 justify-content-end">
                   <button
                     className="btn btn-primary rounded d-flex align-items-center justify-content-center"
                     style={{ width: "40px", height: "40px" }}
@@ -114,7 +114,7 @@ export default function ProductDetails() {
                     style={{ width: "40px", height: "40px" }}
                   >
                     <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      <i class="bi bi-trash"></i>
+                      <i className="bi bi-trash"></i>
                     </span>
                   </button>
                 </div>
