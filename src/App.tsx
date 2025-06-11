@@ -9,10 +9,10 @@ import About from './pages/about/about'
 import Home from './pages/home/home'
 import NotFound from './pages/notFound/notFound'
 import Products from './pages/products/products'
-import ProductDetails from './pages/productDetails/productDetails'
 import Login from './pages/login/login'
 import SignUp from './pages/signup/signup'
 import Cart from './pages/cart/cart'
+import ProductDetails from './pages/productDetails/productDetails'
 
 
 function App() {

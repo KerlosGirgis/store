@@ -1,0 +1,22 @@
+.bg-dark {
+    background-color: #1a1a1a !important;
+}
+
+.thumbnail-container:hover {
+    opacity: 0.8;
+}
+
+.thumbnail-container.active img {
+    border-color: #fff !important;
+}
+
+@media (max-width: 768px) {
+    .product-info {
+        margin-top: 2rem;
+    }
+
+    .thumbnail-container img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
