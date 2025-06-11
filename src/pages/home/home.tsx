@@ -33,9 +33,8 @@ export default function Home() {
             .map((cat) => (
               <div key={cat.id} className="col-6">
                 <div
-                  className={`card h-100 border-0 transition-all duration-300 rounded-5 ${
-                    hoveredCard === cat.id ? "shadow-lg" : "shadow"
-                  }`}
+                  className={`card h-100 border-0 transition-all duration-300 rounded-5 ${hoveredCard === cat.id ? "shadow-lg" : "shadow"
+                    }`}
                   style={{
                     backgroundColor: "#1a1c1d",
                     transform:
@@ -72,7 +71,7 @@ export default function Home() {
                     </div>
                     <h5
                       className="card-title fw-bold mb-3"
-                      style={{ color: "white" ,background:"transparent"}}
+                      style={{ color: "white", background: "transparent" }}
                     >
                       {cat.name}
                     </h5>
