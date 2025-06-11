@@ -101,7 +101,7 @@ export default function ProductDetails() {
                     className="btn btn-primary rounded d-flex align-items-center justify-content-center"
                     style={{ width: "40px", height: "40px" }}
                   >
-                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>+</span>
+                    <span style={{ fontSize: "18px", fontWeight: "bold",background:"transparent" }}>+</span>
                   </button>
 
                   <input type="number" value={1} className="form-control text-light text-center w-25 bg-dark rounded d-flex align-items-center justify-content-center" id="exampleInputEmail1" aria-describedby="emailHelp" />
@@ -113,8 +113,8 @@ export default function ProductDetails() {
                     className="btn btn-danger rounded d-flex align-items-center justify-content-center"
                     style={{ width: "40px", height: "40px" }}
                   >
-                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      <i className="bi bi-trash"></i>
+                    <span style={{ fontSize: "18px", fontWeight: "bold", background: "transparent" }}>
+                      <i style={{ background: "transparent" }} className="bi bi-trash"></i>
                     </span>
                   </button>
                 </div>
