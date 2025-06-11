@@ -11,6 +11,7 @@ import NotFound from './pages/notFound/notFound'
 import Products from './pages/products/products'
 import Login from './pages/login/login'
 import SignUp from './pages/signup/signup'
+import Cart from './pages/cart/cart'
 import ProductDetails from './pages/productDetails/productDetails'
 
 
@@ -19,13 +20,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />} >
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="*" element={<NotFound />} />
+      <Route index element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path='/cart' element={<Cart/>}/>
+      <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )
