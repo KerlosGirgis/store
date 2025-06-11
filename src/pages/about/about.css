@@ -1,0 +1,27 @@
+.purple-heading {
+  color: #8b5cf6;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.content-text {
+  color: #e5e5e5;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.icon-section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.icon-item {
+  color: #666;
+  font-size: 2rem;
+  opacity: 0.7;
+}
