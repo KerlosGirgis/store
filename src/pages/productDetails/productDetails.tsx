@@ -6,6 +6,9 @@ import "./productDetails.css";
 
 export default function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [showCard, setShowCard] = useState(true);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const thumbnailImages = [
     "https://png.pngtree.com/png-vector/20230902/ourmid/pngtree-white-t-shirt-mockup-realistic-t-shirt-png-image_9906363.png",
@@ -18,119 +21,168 @@ export default function ProductDetails() {
   ];
 
   return (
-    <div className="card-container my-5 text-white ">
-      <div className="container-fluid  px-4 py-3">
-        <div className="row mb-4">
-          <div className="col-12">
-            <button className="btn btn-link px-3 text-white border border-1 border-secondary-subtle rounded-pill  text-decoration-none">
-              <i className="bi bi-arrow-left me-2"></i>
-              <span>Back</span>
-            </button>
-          </div>
-        </div>
+    <>
+      {showCard ? (
+        <div className="card-container my-5 text-white ">
 
-        <div className="row">
-          <div className="col-md-2 col-3 order-1">
-            <div className="d-flex flex-column gap-3">
-              {thumbnailImages.map((thumb, index) => (
-                <div
-                  key={index}
-                  className={`thumbnail-container ${
-                    selectedImage === index ? "active" : ""
-                  }`}
-                  onClick={() => setSelectedImage(index)}
-                  style={{ cursor: "pointer" }}
-                >
+          <div className="container-fluid  px-4 py-3">
+            <div className="row mb-4">
+              <div className="col-12">
+                <button className="btn btn-link px-3 text-white border border-1 border-secondary-subtle rounded-pill  text-decoration-none">
+                  <i className="bi bi-arrow-left me-2"></i>
+                  <span>Back</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-2 col-3 order-1">
+                <div className="d-flex flex-column gap-3">
+                  {thumbnailImages.map((thumb, index) => (
+                    <div
+                      key={index}
+                      className={`thumbnail-container ${selectedImage === index ? "active" : ""
+                        }`}
+                      onClick={() => setSelectedImage(index)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img
+                        src={thumb || "/placeholder.svg"}
+                        alt={`Product view ${index + 1}`}
+                        className="img-fluid rounded"
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          objectFit: "cover",
+                          border:
+                            selectedImage === index
+                              ? "2px solid #fff"
+                              : "1px solid #444",
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="col-md-5 col-9 order-2 order-md-2">
+                <div className="main-image-container">
                   <img
-                    src={thumb || "/placeholder.svg"}
-                    alt={`Product view ${index + 1}`}
+                    src={thumbnailImages[selectedImage] || "/placeholder.svg"}
+                    alt=" Hoodie"
                     className="img-fluid rounded"
                     style={{
-                      width: "80px",
-                      height: "80px",
-                      objectFit: "cover",
-                      border:
-                        selectedImage === index
-                          ? "2px solid #fff"
-                          : "1px solid #444",
+                      width: "100%",
+                      maxWidth: "400px",
+                      height: "auto",
+                      backgroundColor: "#f8f9fa",
                     }}
                   />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="col-md-5 col-9 order-2 order-md-2">
-            <div className="main-image-container">
-              <img
-                src={thumbnailImages[selectedImage] || "/placeholder.svg"}
-                alt=" Hoodie"
-                className="img-fluid rounded"
-                style={{
-                  width: "100%",
-                  maxWidth: "400px",
-                  height: "auto",
-                  backgroundColor: "#f8f9fa",
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="col-md-5 col-12 order-3">
-            <div className="product-info">
-              <h1 className="h2 fw-bold mb-3">Electronic Bronze Computer</h1>
-
-              <p className=" w-25 text-center border border-1 border-secondary-subtle rounded-pill mb-1">
-                Clothes
-              </p>
-
-              <div className="product-description mb-4 mt-5">
-                <p className="   text-secondary fs-5 fw-light">
-                  Boxtart's most advanced compression wear technology increases
-                  muscle oxygenation, stabilizes active muscle
-                </p>
               </div>
 
-              <div className="d-flex  justify-content-between align-items-center ">
-                <div>
-                  <p>Price</p>
-                  <div className="price-section ">
-                    <h3 className="h2 fw-bold text-white">$ 666</h3>
+              <div className="col-md-5 col-12 order-3">
+                <div className="product-info">
+                  <h1 className="h2 fw-bold mb-3">Electronic Bronze Computer</h1>
+
+                  <p className=" w-25 text-center border border-1 border-secondary-subtle rounded-pill mb-1">
+                    Clothes
+                  </p>
+
+                  <div className="product-description mb-4 mt-5">
+                    <p className="   text-secondary fs-5 fw-light">
+                      Boxtart's most advanced compression wear technology increases
+                      muscle oxygenation, stabilizes active muscle
+                    </p>
                   </div>
-                </div>
 
-                <div className="social-buttons d-flex gap-2 justify-content-end">
-                  <button
-                    className="btn btn-primary rounded d-flex align-items-center justify-content-center"
-                    style={{ width: "40px", height: "40px" }}
-                  >
-                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      +
-                    </span>
-                  </button>
+                  <div className="d-flex  justify-content-between align-items-center ">
+                    <div>
+                      <p>Price</p>
+                      <div className="price-section ">
+                        <h3 className="h2 fw-bold text-white">$ 666</h3>
+                      </div>
+                    </div>
 
-                  <input
-                    type="number"
-                    value={1}
-                    className="form-control text-light text-center w-25 bg-dark rounded d-flex align-items-center justify-content-center"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                  />
+                    <div className="social-buttons d-flex gap-2 justify-content-end">
+                      <button
+                        className="btn btn-primary rounded d-flex align-items-center justify-content-center"
+                        style={{ width: "40px", height: "40px" }}
+                        onClick={() => setQuantity(prev => prev + 1)} >
+                        <span style={{ fontSize: "18px", fontWeight: "bold", background: "transparent" }}>
+                          +
+                        </span>
+                      </button>
 
-                  <button
-                    className="btn btn-danger rounded d-flex align-items-center justify-content-center"
-                    style={{ width: "40px", height: "40px" }}
-                  >
-                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      <i className="bi bi-trash"></i>
-                    </span>
-                  </button>
+                      <input
+                        type="number"
+                        value={quantity}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
+                        className="form-control text-light text-center w-25 bg-dark rounded d-flex align-items-center justify-content-center"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
+
+                      <button
+                        className="btn btn-danger rounded d-flex align-items-center justify-content-center"
+                        style={{ width: "40px", height: "40px" }}
+                        onClick={() => { setShowConfirmModal(true) }} >
+                        <span style={{ fontSize: "18px", fontWeight: "bold", background: "transparent" }}>
+                          <i className="bi bi-trash" style={{ background: "transparent" }}></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+      ) : null}
+
+      {showConfirmModal ? (
+        <div
+          className="modal fade show"
+          style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
+          tabIndex={-1}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content bg-dark text-light">
+              <div className="modal-header">
+                <h5 className="modal-title">Delete Product</h5>
+                <button
+                  type="button"
+                  className="btn-close btn-close-white"
+                  onClick={() => setShowConfirmModal(false)}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Are you sure you want to delete this product?</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowConfirmModal(false)}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => {
+                    setShowCard(false);
+                    setShowConfirmModal(false);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }

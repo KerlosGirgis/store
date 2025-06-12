@@ -5,9 +5,9 @@
   box-shadow: 0 0 10px rgba(212, 209, 209, 0.5);
 }
 
-/* .bg-dark {
-    background-color: #1a1a1a !important;
-} */
+.bg-dark {
+  background-color: #1a1a1a !important;
+}
 
 .thumbnail-container:hover {
   opacity: 0.8;
