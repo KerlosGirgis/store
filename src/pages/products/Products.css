@@ -16,17 +16,11 @@
 
 .main-content {
   background-color: #18191a;
-  padding: 2rem 1rem;
-}
-
-.main-section {
-  padding-right: 2rem;
+  
 }
 
 .sidebar-section {
   background-color: #2d2d2d;
-  padding: 2rem 1rem;
-  border-radius: 8px;
   height: fit-content;
 }
 
@@ -145,17 +139,6 @@
   border-color: #5b4cc4 !important;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-section {
-    padding-right: 1rem;
-  }
-
-  .sidebar-section {
-    margin-top: 2rem;
-  }
-}
-
 /* Bootstrap Override */
 .bg-dark {
   background-color: #1a1a1a !important;
@@ -184,10 +167,13 @@
 .view-details-btn {
   border-color: #ffffff !important;
   color: #ffffff !important;
-  border-radius: 15%;
 }
 
 .view-details-btn:hover {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
+}
+.sidebar-section {
+  margin-top: 1.3rem;
+
 }
