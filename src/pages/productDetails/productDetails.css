@@ -1,8 +1,8 @@
 .card-container {
-    /* background-color: rgb(63, 63, 63) !important; */
-    width: 70%;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(212, 209, 209, 0.5);
+  /* background-color: rgb(63, 63, 63) !important; */
+  width: 70%;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(212, 209, 209, 0.5);
 }
 
 /* .bg-dark {
@@ -10,32 +10,31 @@
 } */
 
 .thumbnail-container:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .thumbnail-container.active img {
-    border-color: #fff !important;
+  border-color: #fff !important;
 }
 
 @media (max-width: 768px) {
-    .product-info {
-        margin-top: 2rem;
-    }
+  .product-info {
+    margin-top: 2rem;
+  }
 
-    .thumbnail-container img {
-        width: 60px !important;
-        height: 60px !important;
-    }
+  .thumbnail-container img {
+    width: 60px !important;
+    height: 60px !important;
+  }
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
-

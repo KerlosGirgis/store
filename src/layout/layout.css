@@ -20,7 +20,8 @@
 }
 
 .btn-login,
-.btn-signup {
+.btn-signup,
+.btn-logout {
   color: white !important;
   border: none;
   background: none;
@@ -29,7 +30,8 @@
 }
 
 .btn-login:hover,
-.btn-signup:hover {
+.btn-signup:hover,
+.btn-logout:hover {
   color: #f8f9fa !important;
   opacity: 0.8;
 }

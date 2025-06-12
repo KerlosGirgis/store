@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./productDetails.css"
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./productDetails.css";
 
 export default function ProductDetails() {
-  const [selectedImage, setSelectedImage] = useState(0)
-
+  const [selectedImage, setSelectedImage] = useState(0);
 
   const thumbnailImages = [
     "https://png.pngtree.com/png-vector/20230902/ourmid/pngtree-white-t-shirt-mockup-realistic-t-shirt-png-image_9906363.png",
@@ -16,7 +15,7 @@ export default function ProductDetails() {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy8VfYgsGGpN1CDR7YnFBhsmWwvwxFpJNo6SyzGKPVZLRzjwoB2IaexiE-si5Z2Ri0BXw&usqp=CAU",
 
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtcx3Ai5axmHgbPFKQwgvMYjJU37b01gTSw&s",
-  ]
+  ];
 
   return (
     <div className="card-container my-5 text-white ">
@@ -36,7 +35,9 @@ export default function ProductDetails() {
               {thumbnailImages.map((thumb, index) => (
                 <div
                   key={index}
-                  className={`thumbnail-container ${selectedImage === index ? "active" : ""}`}
+                  className={`thumbnail-container ${
+                    selectedImage === index ? "active" : ""
+                  }`}
                   onClick={() => setSelectedImage(index)}
                   style={{ cursor: "pointer" }}
                 >
@@ -48,7 +49,10 @@ export default function ProductDetails() {
                       width: "80px",
                       height: "80px",
                       objectFit: "cover",
-                      border: selectedImage === index ? "2px solid #fff" : "1px solid #444",
+                      border:
+                        selectedImage === index
+                          ? "2px solid #fff"
+                          : "1px solid #444",
                     }}
                   />
                 </div>
@@ -72,20 +76,20 @@ export default function ProductDetails() {
             </div>
           </div>
 
-
           <div className="col-md-5 col-12 order-3">
             <div className="product-info">
               <h1 className="h2 fw-bold mb-3">Electronic Bronze Computer</h1>
 
-              <p className=" w-25 text-center border border-1 border-secondary-subtle rounded-pill mb-1">Clothes</p>
+              <p className=" w-25 text-center border border-1 border-secondary-subtle rounded-pill mb-1">
+                Clothes
+              </p>
 
               <div className="product-description mb-4 mt-5">
                 <p className="   text-secondary fs-5 fw-light">
-                  Boxtart's most advanced compression wear technology increases muscle oxygenation, stabilizes active
-                  muscle
+                  Boxtart's most advanced compression wear technology increases
+                  muscle oxygenation, stabilizes active muscle
                 </p>
               </div>
-
 
               <div className="d-flex  justify-content-between align-items-center ">
                 <div>
@@ -95,40 +99,38 @@ export default function ProductDetails() {
                   </div>
                 </div>
 
-
                 <div className="social-buttons d-flex gap-2 justify-content-end">
                   <button
                     className="btn btn-primary rounded d-flex align-items-center justify-content-center"
                     style={{ width: "40px", height: "40px" }}
                   >
-                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>+</span>
+                    <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      +
+                    </span>
                   </button>
 
-                  <input type="number" value={1} className="form-control text-light text-center w-25 bg-dark rounded d-flex align-items-center justify-content-center" id="exampleInputEmail1" aria-describedby="emailHelp" />
-
-
-
+                  <input
+                    type="number"
+                    value={1}
+                    className="form-control text-light text-center w-25 bg-dark rounded d-flex align-items-center justify-content-center"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
 
                   <button
                     className="btn btn-danger rounded d-flex align-items-center justify-content-center"
                     style={{ width: "40px", height: "40px" }}
                   >
                     <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      <i class="bi bi-trash"></i>
+                      <i className="bi bi-trash"></i>
                     </span>
                   </button>
                 </div>
               </div>
-
-
-
-
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
-  )
+  );
 }

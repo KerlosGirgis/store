@@ -1,6 +1,10 @@
 import { Outlet, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 import "./layout.css";
 export default function Layout() {
+  const { user, logout } = useAuth();
+
   const navigate = useNavigate();
   return (
     <>
@@ -56,22 +60,36 @@ export default function Layout() {
                 </a>
               </li>
             </ul>
-
             <div className="user-actions">
-              <button
-                className="btn btn-login"
-                style={{ cursor: "pointer" }}
-                onClick={() => navigate("/login")}
-              >
-                <i className="bi bi-person"></i>Login
-              </button>
-              <button
-                className="btn btn-signup"
-                style={{ cursor: "pointer" }}
-                onClick={() => navigate("/signup")}
-              >
-                <i className="bi bi-person-plus"></i>Sign Up
-              </button>
+              {user ? (
+                <button
+                  className="btn btn-logout"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                >
+                  <i className="bi bi-person"></i>Logout
+                </button>
+              ) : (
+                <>
+                  <button
+                    className="btn btn-login"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate("/login")}
+                  >
+                    <i className="bi bi-person"></i>Login
+                  </button>
+                  <button
+                    className="btn btn-signup"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate("/signup")}
+                  >
+                    <i className="bi bi-person-plus"></i>Sign Up
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
