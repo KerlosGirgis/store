@@ -82,7 +82,7 @@ const Products: React.FC = () => {
   };
 
   const handleViewDetails = (id: number) => {
-    navigate(`/products/${id}`);
+    navigate(`/product/${id}`);
   };
 
   return (
