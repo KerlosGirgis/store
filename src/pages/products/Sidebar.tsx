@@ -8,7 +8,7 @@ const categories = ["All", "Clothes", "Electronics", "Furniture", "Shoes", "Misc
 
 const Sidebar: React.FC<SidebarProps> = ({ onSelect }) => (
   <div className="sidebar-container">
-    <h5 className="mb-3 text-purple d-flex align-items-center">
+    <h5 className="mb-3 text-purple d-flex align-items-center" style={{background:"transparent"}}>
       <span className="purple-dot me-2"></span>
       Categories
     </h5>

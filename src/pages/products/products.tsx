@@ -98,7 +98,7 @@ const Products: React.FC = () => {
             ) : error ? (
               <Alert variant="danger">{error}</Alert>
             ) : (
-              <Row className="g-4">
+              <Row className="g-3">
                 {filtered.map((product) => (
                   <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
                     <ProductCard
@@ -111,7 +111,7 @@ const Products: React.FC = () => {
               </Row>
             )}
           </Col>
-          <Col md={3} className="sidebar-section">
+          <Col md={3} className="sidebar-section rounded-4">
             <Sidebar onSelect={handleCategorySelect} />
           </Col>
         </Row>

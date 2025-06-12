@@ -10,7 +10,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onChange, value }) => (
   <div className="my-4">
     <InputGroup className="search-bar">
       <InputGroup.Text className="bg-dark border-0 text-purple">
-        <FaSearch />
+        <FaSearch style={{background:"transparent"}} ></FaSearch>
       </InputGroup.Text>
       <Form.Control
         placeholder="Search..."
