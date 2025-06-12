@@ -102,7 +102,7 @@ export default function Login() {
               <input
                 type="email"
                 id="email"
-                className="form-control border-0 shadow-none"
+                className="form-control border-1 shadow-none"
                 style={{ backgroundColor: "#1A1D24", color: "#ffffff" }}
                 placeholder="Enter your email"
                 {...register("email")}
@@ -127,7 +127,7 @@ export default function Login() {
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
-                className="form-control border-0 shadow-none"
+                className="form-control border-1 shadow-none"
                 style={{ backgroundColor: "#1A1D24", color: "#ffffff" }}
                 placeholder="Enter your password"
                 {...register("password")}
