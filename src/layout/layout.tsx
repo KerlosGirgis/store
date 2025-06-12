@@ -45,7 +45,7 @@ export default function Layout() {
                 <a
                   className="nav-link"
                   style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/products")}
+                  onClick={() => navigate("/products/-1")}
                 >
                   Products
                 </a>
