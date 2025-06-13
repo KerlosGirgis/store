@@ -19,6 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect }) => (
           key={cat}
           className="sidebar-item"
           onClick={() => onSelect(cat)}
+          
         >
           {cat}
         </ListGroup.Item>

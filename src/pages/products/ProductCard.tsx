@@ -31,8 +31,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onViewD
       />
     </div>
     <Card.Body className="d-flex flex-column">
-      <Card.Title className="text-white fw-bold">{product.title}</Card.Title>
-      <Card.Text className="text-muted small flex-grow-1">
+      <Card.Title className="text-white fw-bold ">{product.title}</Card.Title>
+      <Card.Text className="text-dark small flex-grow-1">
         {product.description.length > 60
           ? product.description.slice(0, 60) + "..."
           : product.description}
@@ -49,7 +49,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onViewD
       </div>
       <div className="d-flex justify-content-between align-items-center mt-auto">
         <span className="text-white fw-bold fs-5">${product.price}</span>
-        <Button variant="primary" size="sm" onClick={onAddToCart}>
+        <Button  size="sm" onClick={onAddToCart} className="add-to-cart-btn"
+ >
           Add To Cart
         </Button>
       </div>
