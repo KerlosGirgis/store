@@ -17,25 +17,37 @@
   transition: background-color 0.3s;
   color: #eee !important;
 }
+.card-text.text-muted {
+  color: #888 !important;
+}
 
 .sidebar-item:hover {
   background-color: #2d2d2d;
 }
 
-.search-bar {
-  margin-bottom: 20px;
+.search-bar .input-group-text {
+  background-color: #2d2d2d !important;
+  border: 1px solid #404040 !important;
 }
 
 .search-input {
-  background-color: #2d2d2d;
-  border: 1px solid #404040;
-  color: #fff !important;
+  background-color: #2d2d2d !important;
+  border: 1px solid #404040 !important;
+  color: white !important;
 }
+
+.search-input::placeholder {
+  color: #888 !important;
+}
+
 .search-input:focus {
   background-color: #2d2d2d !important;
   border-color: #7c3aed !important;
-  box-shadow: 0 0 0 0.2rem #8139fc40 !important;
+  box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25) !important;
   color: white !important;
+}
+.text-purple *{
+  color: #7c3aed !important;
 }
 .sidebar-item:hover{
   background-color: #2d2d2d !important;
@@ -44,7 +56,7 @@
 }
 
 .search-input::placeholder {
-  color: #aaa !important;
+  color: #4c4c4c !important;
 }
 .text-purple {
   color:  #8b5cf6!important;
@@ -73,11 +85,30 @@
 
 .product-card {
   background-color: #242526;
+   overflow: hidden;
+  transition: transform 0.2s ease;
   border: none;
   color: #fff;
     font-family: 'Inter', sans-serif;
 }
+.view-details-btn {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
 
+.product-card .card-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.view-details-btn:hover {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+}
 .product-image-container {
   height: 200px;
   overflow: hidden;
@@ -89,26 +120,24 @@
   object-fit: cover;
 }
 
-.card-title,
-.card-text {
-  color: #fff !important;
+
+.text-white {
+  color: white !important;
 }
 
-.view-details-btn {
-  color: #ffffff !important;
-}
-.view-details-btn:hover {
-  background-color: #ffffff !important;
-  color:  #18191a !important;
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
-.alert,
+
 .spinner-border {
   color: #fff !important;
 }
-.sidebar-item.active {
+.active-sidebar {
   background-color: #2d2d2d !important;
   border: 1px solid #7c3aed !important;
   box-shadow: 0 0 0 0.2rem #8139fc40 !important;
   transform: translateX(5px);
+  color: white !important;
 }

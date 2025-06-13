@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onViewD
     </div>
     <Card.Body className="d-flex flex-column">
       <Card.Title className="text-white fw-bold ">{product.title}</Card.Title>
-      <Card.Text className="text-dark small flex-grow-1">
+      <Card.Text className="text-muted  small flex-grow-1">
         {product.description.length > 60
           ? product.description.slice(0, 60) + "..."
           : product.description}

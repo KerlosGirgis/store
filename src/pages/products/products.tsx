@@ -77,7 +77,6 @@ const Products: React.FC = () => {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       cart.push({ ...product, quantity: 1 });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Added to cart!");
     }
   };
 
