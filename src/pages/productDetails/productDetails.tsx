@@ -35,6 +35,7 @@ export default function ProductDetails() {
   useEffect(() => {
     const getProductDetails = async () => {
       try {
+        
         const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${id}`);
 
         // const response = await axios.get(`https://api.escuelajs.co/api/v1/products`);
