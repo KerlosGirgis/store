@@ -61,6 +61,11 @@ export default function Layout() {
               </li>
             </ul>
             <div className="user-actions">
+              {user && (
+                <div className="ms-auto me-3" style={{ position: "relative", cursor: "pointer" }} onClick={() => navigate("/cart")}> 
+                  <i className="bi bi-cart3 fs-5 text-light"></i>
+                </div>
+              )}
               {user ? (
                 <button
                   className="btn btn-logout"
