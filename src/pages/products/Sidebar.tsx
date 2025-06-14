@@ -16,18 +16,18 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelect }) => {
   };
 
   return (
-    <div className="sidebar-container">
-      <h5 className="mb-3 text-purple d-flex align-items-center">
-        <span className="purple-dot me-2"></span>
+    <div className="sidebar-container bg-dark text-white p-3 rounded border border-secondary">
+      <h4 className="mb-3 text-purple fw-semibold d-flex align-items-center">
+        <i className="bi bi-grid-fill text-purple me-2"></i>
         Categories
-      </h5>
-      <ListGroup variant="flush" className="sidebar-list">
+      </h4>
+      <ListGroup variant="flush" className="sidebar-list  p-2">
         {categories.map((cat) => (
           <ListGroup.Item
             action
             key={cat}
-            className={`sidebar-item ${activeCategory === cat ? "active-sidebar" : ""}`}
-            onClick={() => handleSelect(cat)}
+            className={`bg-dark text-white border-0 py-2 px-3 rounded-0 sidebar-item ${activeCategory === cat ? "active-sidebar" : ""
+              }`} onClick={() => handleSelect(cat)}
           >
             {cat}
           </ListGroup.Item>

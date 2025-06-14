@@ -48,7 +48,7 @@ const Products: React.FC = () => {
           setFiltered(cleaned);
         }
       } catch (err) {
-        setError("Failed to load products.");
+        setError(`Failed to load products. ${err}`);
       } finally {
         setLoading(false);
       }
@@ -93,9 +93,13 @@ const Products: React.FC = () => {
   return (
     <div className="app-container">
       <Container fluid className="main-content">
+        <Row className="w-75 ">
+          <SearchBar onChange={handleSearchChange} value={search} />
+
+        </Row>
         <Row className="h-100">
           <Col md={9} className="main-section">
-            <SearchBar onChange={handleSearchChange} value={search} />
+
             {loading ? (
               <div className="text-center py-5">
                 <Spinner animation="border" variant="light" />

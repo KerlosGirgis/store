@@ -35,9 +35,8 @@ export default function Home() {
             .map((cat) => (
               <div key={cat.id} className="col-6">
                 <div
-                  className={`card h-100 border-0 transition-all duration-300 rounded-5 ${
-                    hoveredCard === cat.id ? "shadow-lg" : "shadow"
-                  }`}
+                  className={`card h-100 border-0 transition-all duration-300 rounded-5 ${hoveredCard === cat.id ? "shadow-lg" : "shadow"
+                    }`}
                   style={{
                     backgroundColor: "#1a1c1d",
                     transform:
@@ -49,9 +48,9 @@ export default function Home() {
                   }}
                   onMouseEnter={() => setHoveredCard(cat.id)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => navigate(`/products/${cat.id}`)}
+                  onClick={() => navigate(`/products?categoryId=${cat.id}`)}
                 >
-                  <div className="card-body p-4 text-center rounded-5" style={{backgroundColor:"#23272b"}}>
+                  <div className="card-body p-4 text-center rounded-5" style={{ backgroundColor: "#23272b" }}>
                     <div
                       className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
                       style={{

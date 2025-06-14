@@ -17,6 +17,7 @@
   transition: background-color 0.3s;
   color: #eee !important;
 }
+
 .card-text.text-muted {
   color: #888 !important;
 }
@@ -46,10 +47,12 @@
   box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25) !important;
   color: white !important;
 }
-.text-purple *{
+
+.text-purple * {
   color: #7c3aed !important;
 }
-.sidebar-item:hover{
+
+.sidebar-item:hover {
   background-color: #2d2d2d !important;
   border-color: #7c3aed !important;
   box-shadow: 0 0 0 0.2rem #8139fc40 !important;
@@ -58,9 +61,11 @@
 .search-input::placeholder {
   color: #4c4c4c !important;
 }
+
 .text-purple {
-  color:  #8b5cf6!important;
+  color: #8b5cf6 !important;
 }
+
 .purple-dot {
   width: 8px;
   height: 8px;
@@ -68,15 +73,18 @@
   border-radius: 50%;
   display: inline-block;
 }
+
 .add-to-cart-btn:hover {
   background-color: #8b5cf6 !important;
-  border-color:  #8b5cf6!important ;
-  
+  border-color: #8b5cf6 !important;
+
 }
+
 .add-to-cart-btn {
-  background-color: #5b4cc4 !important ;
-  border-color: #5b4cc4 !important ;
+  background-color: #5b4cc4 !important;
+  border-color: #5b4cc4 !important;
 }
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -85,12 +93,13 @@
 
 .product-card {
   background-color: #242526;
-   overflow: hidden;
+  overflow: hidden;
   transition: transform 0.2s ease;
   border: none;
   color: #fff;
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
+
 .view-details-btn {
   border-color: #ffffff !important;
   color: #ffffff !important;
@@ -100,6 +109,7 @@
   font-size: 0.875rem;
   line-height: 1.4;
 }
+
 .product-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -109,6 +119,7 @@
   background-color: #ffffff !important;
   color: #1a1a1a !important;
 }
+
 .product-image-container {
   height: 200px;
   overflow: hidden;
@@ -127,17 +138,20 @@
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 
 .spinner-border {
   color: #fff !important;
 }
+
 .active-sidebar {
-  background-color: #2d2d2d !important;
+  /* background-color: #2d2d2d !important;
   border: 1px solid #7c3aed !important;
   box-shadow: 0 0 0 0.2rem #8139fc40 !important;
   transform: translateX(5px);
-  color: white !important;
+  color: white !important; */
+  border-left: 4px solid #8b5cf6 !important;
+  font-weight: 600;
 }
