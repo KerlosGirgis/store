@@ -6,44 +6,48 @@ import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
 import './Products.css';
 
-type Category = {
-  id: number;
-  name: string;
-};
+// type Category = {
+//   id: number;
+//   name: string;
+// };
 
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  category?: Category;
-  images: string[];
-};
+// type Product = {
+//   id: number;
+//   title: string;
+//   description: string;
+//   price: number;
+//   category?: Category;
+//   images: string[];
+// };
 
 const Products: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filtered, setFiltered] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
+  const [products, setProducts] = useState<any[]>([]);
+  const [filtered, setFiltered] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
 
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+
         const res = await fetch("https://api.escuelajs.co/api/v1/products");
-        const data: Product[] = await res.json();
+        const data = await res.json();
+        const cleaned = data.filter((p: any) => p.category?.id !== 6);
 
-        const cleaned = data.filter((p) => p.category?.id !== 6);
+        // const res = await fetch("https://ecommerce.routemisr.com/api/v1/products");
+        // const json = await res.json();
+        // const cleaned = json.data.filter((p: any) => p.category?.id !== 6);
         setProducts(cleaned);
-
         const params = new URLSearchParams(location.search);
         const categoryId = parseInt(params.get("categoryId") || "", 10);
 
         if (!isNaN(categoryId)) {
-          setFiltered(cleaned.filter((p) => p.category?.id === categoryId));
+          setFiltered(cleaned.filter((p: any) => p.category?.id === categoryId));
         } else {
           setFiltered(cleaned);
         }
