@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
-
-
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
