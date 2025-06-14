@@ -19,15 +19,6 @@ export default function CartPage() {
       const parsedCart = JSON.parse(storedCart);
       setCartItems(parsedCart);
       setIsEmpty(parsedCart.length === 0);
-    } else {
-      const dummyItems: CartItem[] = [
-        { id: "1", name: "Premium Headphones", price: 199.99, quantity: 1 },
-        { id: "2", name: "Wireless Mouse", price: 29.99, quantity: 2 },
-        { id: "3", name: "Mechanical Keyboard", price: 89.99, quantity: 1 },
-      ];
-      setCartItems(dummyItems);
-      setIsEmpty(false);
-      localStorage.setItem("cart", JSON.stringify(dummyItems));
     }
   }, []);
 
@@ -58,7 +49,7 @@ export default function CartPage() {
     localStorage.removeItem("cart");
     setCartItems([]);
     setIsEmpty(true);
-    navigate("/products");
+    navigate("/products/-1");
   };
 
   return (
