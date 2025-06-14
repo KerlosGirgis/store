@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
@@ -28,6 +28,7 @@ const Products: React.FC = () => {
   const [search, setSearch] = useState<string>("");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,12 +36,17 @@ const Products: React.FC = () => {
         const res = await fetch("https://api.escuelajs.co/api/v1/products");
         const data: Product[] = await res.json();
 
-        const filteredProducts = data.filter(
-          (product) => product.category?.id !== 6
-        );
+        const cleaned = data.filter((p) => p.category?.id !== 6);
+        setProducts(cleaned);
 
-        setProducts(filteredProducts);
-        setFiltered(filteredProducts);
+        const params = new URLSearchParams(location.search);
+        const categoryId = parseInt(params.get("categoryId") || "", 10);
+
+        if (!isNaN(categoryId)) {
+          setFiltered(cleaned.filter((p) => p.category?.id === categoryId));
+        } else {
+          setFiltered(cleaned);
+        }
       } catch (err) {
         setError("Failed to load products.");
       } finally {
@@ -49,7 +55,7 @@ const Products: React.FC = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, [location.search]);
 
   const handleCategorySelect = (category: string) => {
     if (category === "All") {
@@ -77,12 +83,11 @@ const Products: React.FC = () => {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       cart.push({ ...product, quantity: 1 });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Added to cart!");
     }
   };
 
   const handleViewDetails = (id: number) => {
-    navigate(`/product/${id}`);
+    navigate(`/products/${id}`);
   };
 
   return (
@@ -98,7 +103,7 @@ const Products: React.FC = () => {
             ) : error ? (
               <Alert variant="danger">{error}</Alert>
             ) : (
-              <Row className="g-3">
+              <Row className="g-4">
                 {filtered.map((product) => (
                   <Col key={product.id} xs={12} sm={6} md={4} lg={3}>
                     <ProductCard
@@ -111,7 +116,7 @@ const Products: React.FC = () => {
               </Row>
             )}
           </Col>
-          <Col md={3} className="sidebar-section rounded-4">
+          <Col md={3} className="sidebar-section">
             <Sidebar onSelect={handleCategorySelect} />
           </Col>
         </Row>
