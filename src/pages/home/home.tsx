@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 
 type Category = {
   id: number;
@@ -10,6 +11,7 @@ type Category = {
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/categories")
@@ -43,11 +45,13 @@ export default function Home() {
                         ? "translateY(-5px)"
                         : "translateY(0)",
                     transition: "all 0.3s ease",
+                    cursor: "pointer",
                   }}
                   onMouseEnter={() => setHoveredCard(cat.id)}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => navigate(`/products/${cat.id}`)}
                 >
-                  <div className="card-body p-4 text-center bg-dark rounded-5">
+                  <div className="card-body p-4 text-center rounded-5" style={{backgroundColor:"#23272b"}}>
                     <div
                       className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
                       style={{
@@ -72,7 +76,7 @@ export default function Home() {
                     </div>
                     <h5
                       className="card-title fw-bold mb-3"
-                      style={{ color: "white" ,background:"transparent"}}
+                      style={{ color: "white", background: "transparent" }}
                     >
                       {cat.name}
                     </h5>
