@@ -6,19 +6,19 @@ import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
 import './Products.css';
 
-// type Category = {
-//   id: number;
-//   name: string;
-// };
+type Category = {
+  id: number;
+  name: string;
+};
 
-// type Product = {
-//   id: number;
-//   title: string;
-//   description: string;
-//   price: number;
-//   category?: Category;
-//   images: string[];
-// };
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  category?: Category;
+  images: string[];
+};
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]);
