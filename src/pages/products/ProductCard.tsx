@@ -1,4 +1,5 @@
-import { Button, Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 type Product = {
   id: number;
@@ -14,67 +15,53 @@ type ProductCardProps = {
   onViewDetails: () => void;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({
-  product,
-  onAddToCart,
-  onViewDetails,
-}) => (
-  <Card className="h-100 product-card">
-    <div className="product-image-container">
-      <Card.Img
-        variant="top"
-        src={product.images?.[0]}
-        alt={product.title}
-        referrerPolicy="no-referrer"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.onerror = null;
-          target.src =
-            "https://placehold.co/300x200/6c757d/ffffff?text=No+Image";
-        }}
-        className="product-image"
-      />
-    </div>
-    <Card.Body className="d-flex flex-column">
-      <Card.Title
-        className="text-white fw-bold"
-        style={{ background: "transparent" }}
-      >
-        {product.title}
-      </Card.Title>
-      <Card.Text
-        className="text-muted small flex-grow-1"
-        style={{ background: "transparent" }}
-      >
-        {product.description.length > 60
-          ? product.description.slice(0, 60) + "..."
-          : product.description}
-      </Card.Text>
-      <Button
-        variant="outline-light"
-        size="sm"
-        className="view-details-btn rounded-4 w-75 align-self-center mb-3"
-        onClick={onViewDetails}
-      >
-        View Details
-      </Button>
-
-      <div
-        className="d-flex justify-content-between align-items-center mt-auto"
-        style={{ background: "transparent" }}
-      >
-        <span
-          className="text-white fw-bold fs-5"
-          style={{ background: "transparent" }}
-        >
-          ${product.price}
-        </span>
-        <Button variant="primary" size="sm" onClick={onAddToCart}>
-          Add To Cart
-        </Button>
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
+  <Link to={`/product/${product.id}`} className="text-decoration-none">
+    <Card
+      className="h-100 product-card clickable-card"
+      // onClick={onViewDetails}
+      style={{ cursor: "pointer" }}
+    >
+      <div className="product-image-container">
+        <Card.Img
+          variant="top"
+          src={product.images?.[0]}
+          alt={product.title}
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.onerror = null;
+            target.src = "https://placehold.co/300x200/6c757d/ffffff?text=No+Image";
+          }}
+          className="product-image"
+        />
       </div>
-    </Card.Body>
-  </Card>
+      <Card.Body className="d-flex flex-column">
+        <Card.Title className="text-white fw-bold">{product.title}</Card.Title>
+        <Card.Text className="text-muted small flex-grow-1">
+          {product.description.length > 60
+            ? product.description.slice(0, 60) + "..."
+            : product.description}
+        </Card.Text>
+        <div className="d-flex justify-content-between align-items-center mt-auto">
+          <span className="text-white fw-bold fs-5">${product.price}</span>
+          <Link to='/cart'>
+            <Button
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent card click
+              }}
+              className="add-to-cart-btn"
+            >
+              Add To Cart
+            </Button>
+          </Link>
+
+        </div>
+      </Card.Body>
+    </Card>
+  </Link>
+
 );
 
 export default ProductCard;
