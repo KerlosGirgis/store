@@ -44,12 +44,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => (
             : product.description}
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center mt-auto">
-            <span className="text-white fw-bold fs-5">${product.price}</span>
-            <Button size="sm" onClick={onAddToCart} className="add-to-cart-btn"
-            >
-              Add To Cart
-            </Button>
-         
+          <span className="text-white fw-bold fs-5">${product.price}</span>
+          <Button size="sm" onClick={onAddToCart} className="add-to-cart-btn"
+          >
+            Add To Cart
+          </Button>
+
 
         </div>
       </Card.Body>
