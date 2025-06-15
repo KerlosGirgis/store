@@ -31,7 +31,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => (
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.onerror = null;
-            target.src = "https://placehold.co/300x200/6c757d/ffffff?text=No+Image";
+            target.src =
+              "https://placehold.co/300x200/6c757d/ffffff?text=No+Image";
           }}
           className="product-image"
         />
@@ -45,17 +46,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => (
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center mt-auto">
           <span className="text-white fw-bold fs-5">${product.price}</span>
-          <Button size="sm" onClick={onAddToCart} className="add-to-cart-btn"
+          <Button
+            size="sm"
+            onClick={(e) => {
+              e.preventDefault();
+              onAddToCart();
+            }}
+            className="add-to-cart-btn"
           >
             Add To Cart
           </Button>
-
-
         </div>
       </Card.Body>
     </Card>
   </Link>
-
 );
 
 export default ProductCard;
