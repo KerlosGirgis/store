@@ -41,7 +41,7 @@ export default function Layout() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-custom">
+      <nav className="navbar navbar-expand-lg navbar-custom fixed-top bg-dark">
         <div className="container-fluid px-4">
           <a
             className="navbar-brand"
