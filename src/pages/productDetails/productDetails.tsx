@@ -4,42 +4,53 @@ import "./productDetails.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-
 export default function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   // const [showCard, setShowCard] = useState(true);
   // const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [product, setProduct] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { id } = useParams();
   const images = product?.images || [];
-
-
 
   useEffect(() => {
     const getProductDetails = async () => {
       try {
+        setLoading(true);
         // const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`);
-        const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${id}`);
-
+        await axios
+          .get(`https://api.escuelajs.co/api/v1/products/${id}`)
+          .then((res) => setProduct(res.data))
+          .catch((err) => setError(err.message));
+        setLoading(false);
         // const response = await axios.get(`https://api.escuelajs.co/api/v1/products`);
-        console.log(response.data);
-        setProduct(response.data);
       } catch (error) {
         console.error("Failed to fetch product details:", error);
       }
-
-    }
+    };
     getProductDetails();
   }, [id]);
 
-  if (!product) return <p className="empty text-danger fw-bold text-center mt-5 mb-5 p-5 " >This Product id is not found</p>;
-
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  if (error)
+    return (
+      <p className="empty text-danger fw-bold text-center mt-5 mb-5 p-5 ">
+        This Product id is not found
+      </p>
+    );
   return (
     <>
       {/* {showCard ? ( */}
       <div className="card-container my-5 text-white ">
-
         <div className="container-fluid  px-4 py-3">
           <div className="row mb-4">
             <div className="col-12">
@@ -51,18 +62,18 @@ export default function ProductDetails() {
                   </button>
                 </Link>
               )}
-
             </div>
           </div>
 
           <div className="row">
             <div className="col-md-2 col-3 order-1">
               <div className="d-flex flex-column gap-3">
-                {images.map((img, index) => (
+                {images.map((img: any, index: any) => (
                   <div
                     key={index}
-                    className={`thumbnail-container ${selectedImage === index ? "active" : ""
-                      }`}
+                    className={`thumbnail-container ${
+                      selectedImage === index ? "active" : ""
+                    }`}
                     onClick={() => setSelectedImage(index)}
                     style={{ cursor: "pointer" }}
                   >
@@ -119,7 +130,12 @@ export default function ProductDetails() {
                   <div>
                     <p>Price</p>
                     <div className="price-section ">
-                      <h3 className="h2 fw-bold text-white">${product ? (product.price * quantity).toFixed(2) : "0.00"} </h3>
+                      <h3 className="h2 fw-bold text-white">
+                        $
+                        {product
+                          ? (product.price * quantity).toFixed(2)
+                          : "0.00"}{" "}
+                      </h3>
                     </div>
                   </div>
 
@@ -127,8 +143,15 @@ export default function ProductDetails() {
                     <button
                       className="btn btn-primary rounded d-flex align-items-center justify-content-center"
                       style={{ width: "40px", height: "40px" }}
-                      onClick={() => setQuantity(prev => prev + 1)} >
-                      <span style={{ fontSize: "18px", fontWeight: "bold", background: "transparent" }}>
+                      onClick={() => setQuantity((prev) => prev + 1)}
+                    >
+                      <span
+                        style={{
+                          fontSize: "18px",
+                          fontWeight: "bold",
+                          background: "transparent",
+                        }}
+                      >
                         <i className="bi bi-plus"></i>
                       </span>
                     </button>
@@ -148,8 +171,15 @@ export default function ProductDetails() {
                       style={{ width: "40px", height: "40px" }}
                       onClick={() => {
                         if (quantity > 1) setQuantity(quantity - 1);
-                      }}>
-                      <span style={{ fontSize: "18px", fontWeight: "bold", background: "transparent" }}>
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "18px",
+                          fontWeight: "bold",
+                          background: "transparent",
+                        }}
+                      >
                         <i className="bi bi-dash"></i>
                       </span>
                     </button>
@@ -160,53 +190,6 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-
-      {/* ) : null} */}
-
-      {/* {showConfirmModal ? (
-        <div
-          className="modal fade show"
-          style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
-          tabIndex={-1}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content bg-dark text-light">
-              <div className="modal-header">
-                <h5 className="modal-title">Delete Product</h5>
-                <button
-                  type="button"
-                  className="btn-close btn-close-white"
-                  onClick={() => setShowConfirmModal(false)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>Are you sure you want to delete this product?</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={() => setShowConfirmModal(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => {
-                    setShowCard(false);
-                    setShowConfirmModal(false);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      ) : null} */}
     </>
   );
 }

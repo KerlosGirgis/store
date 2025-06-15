@@ -66,13 +66,18 @@ const Products: React.FC = () => {
     );
   };
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: any) => {
     const user = JSON.parse(localStorage.getItem("user") || "null");
     if (!user) {
       navigate("/login");
     } else {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      cart.push({ ...product, quantity: 1 });
+      const existingProduct = cart.find((p: any) => p.id === product.id);
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
