@@ -15,7 +15,7 @@ type ProductCardProps = {
   onViewDetails: () => void;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
+const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => (
   <Link to={`/product/${product.id}`} className="text-decoration-none">
     <Card
       className="h-100 product-card clickable-card"
@@ -45,17 +45,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center mt-auto">
           <span className="text-white fw-bold fs-5">${product.price}</span>
-          <Link to='/cart'>
-            <Button
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent card click
-              }}
-              className="add-to-cart-btn"
-            >
-              Add To Cart
-            </Button>
-          </Link>
+          <Button size="sm" onClick={onAddToCart} className="add-to-cart-btn"
+          >
+            Add To Cart
+          </Button>
+
 
         </div>
       </Card.Body>
