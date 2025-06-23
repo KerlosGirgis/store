@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./productDetails.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function ProductDetails() {
@@ -14,7 +14,7 @@ export default function ProductDetails() {
   const [error, setError] = useState<string | null>(null);
   const { id } = useParams();
   const images = product?.images || [];
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getProductDetails = async () => {
       try {
@@ -193,7 +193,7 @@ export default function ProductDetails() {
                 onClick={async () => {
                   const user = JSON.parse(localStorage.getItem("user") || "null");
                   if (!user) {
-                    window.location.href = "/store/login";
+                    navigate("/store/login");
                     return;
                   }
                   if (!product) return;
