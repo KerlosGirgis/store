@@ -17,7 +17,7 @@
 | Home Page                           | Movie Details                        |
 |------------------------------------|--------------------------------------|
 | ![Home](screenshots/home.png) | ![Details](screenshots/products.png) |
-| ![Home](screenshots/details.png) | ![Home](screenshots/login.png) |
+| ![Home](screenshots/details.png) | ![Home](screenshots/cart.png) |
 
 
 
