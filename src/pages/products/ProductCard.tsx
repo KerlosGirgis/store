@@ -16,7 +16,7 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => (
-  <Link to={`/store/product/${product.id}`} className="text-decoration-none">
+  <Link to={`/product/${product.id}`} className="text-decoration-none">
     <Card
       className="h-100 product-card clickable-card"
       // onClick={onViewDetails}
