@@ -22,13 +22,13 @@ function App() {
       <Routes>
         <Route path="/store" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/store/about" element={<About />} />
-          <Route path="/store/products" element={<Products />} />
-          <Route path="/store/product/:id" element={<ProductDetails />} />
-          <Route path="/store/login" element={<Login />} />
-          <Route path="/store/signup" element={<SignUp />} />
-          <Route path="/store/cart" element={<Cart />} />
-          <Route path="/store/*" element={<NotFound />} />
+          <Route path="about" element={<About />} />
+          <Route path="products" element={<Products />} />
+          <Route path="product/:id" element={<ProductDetails />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </AuthProvider>
