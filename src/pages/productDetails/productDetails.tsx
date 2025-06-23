@@ -47,6 +47,7 @@ export default function ProductDetails() {
         This Product id is not found
       </p>
     );
+
   return (
     <>
       {/* {showCard ? ( */}
@@ -185,6 +186,32 @@ export default function ProductDetails() {
                     </button>
                   </div>
                 </div>
+                <div className="d-flex justify-content-end">
+                  <button
+                className="btn btn-primary align-self-end w-100 mt-3"
+                disabled={loading}
+                onClick={async () => {
+                  const user = JSON.parse(localStorage.getItem("user") || "null");
+                  if (!user) {
+                    window.location.href = "/login";
+                    return;
+                  }
+                  if (!product) return;
+                  setLoading(true);
+                  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+                  const existingProduct = cart.find((p: any) => p.id === product.id);
+                  if (existingProduct) {
+                    existingProduct.quantity += quantity;
+                  } else {
+                    cart.push({ ...product, quantity });
+                  }
+                  localStorage.setItem("cart", JSON.stringify(cart));
+                  setLoading(false);
+                }}
+              >
+                {loading ? "Adding to cart..." : "Add to Cart"}
+              </button>
+              </div>
               </div>
             </div>
           </div>
