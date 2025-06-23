@@ -69,7 +69,7 @@ const Products: React.FC = () => {
   const handleAddToCart = (product: any) => {
     const user = JSON.parse(localStorage.getItem("user") || "null");
     if (!user) {
-      navigate("/login");
+      navigate("/store/login");
     } else {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       const existingProduct = cart.find((p: any) => p.id === product.id);
@@ -83,7 +83,7 @@ const Products: React.FC = () => {
   };
 
   const handleViewDetails = (id: number) => {
-    navigate(`/products/${id}`);
+    navigate(`/store/product/${id}`);
   };
 
   return (

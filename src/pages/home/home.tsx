@@ -48,7 +48,7 @@ export default function Home() {
                   }}
                   onMouseEnter={() => setHoveredCard(cat.id)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => navigate(`/products?categoryId=${cat.id}`)}
+                  onClick={() => navigate(`/store/products?categoryId=${cat.id}`)}
                 >
                   <div className="card-body p-4 text-center rounded-5" style={{ backgroundColor: "#23272b" }}>
                     <div

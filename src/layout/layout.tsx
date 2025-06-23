@@ -69,7 +69,7 @@ export default function Layout() {
                 <a
                   className="nav-link"
                   style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/store")}
                 >
                   Home
                 </a>
@@ -78,7 +78,7 @@ export default function Layout() {
                 <a
                   className="nav-link"
                   style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/products")}
+                  onClick={() => navigate("/store/products")}
                 >
                   Products
                 </a>
@@ -87,7 +87,7 @@ export default function Layout() {
                 <a
                   className="nav-link"
                   style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/about")}
+                  onClick={() => navigate("/store/about")}
                 >
                   About
                 </a>
@@ -129,7 +129,7 @@ export default function Layout() {
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     logout();
-                    navigate("/login");
+                    navigate("/store/login");
                   }}
                 >
                   <i className="bi bi-person"></i>Logout
@@ -139,14 +139,14 @@ export default function Layout() {
                   <button
                     className="btn btn-login"
                     style={{ cursor: "pointer" }}
-                    onClick={() => navigate("/login")}
+                    onClick={() => navigate("/store/login")}
                   >
                     <i className="bi bi-person"></i>Login
                   </button>
                   <button
                     className="btn btn-signup"
                     style={{ cursor: "pointer" }}
-                    onClick={() => navigate("/signup")}
+                    onClick={() => navigate("/store/signup")}
                   >
                     <i className="bi bi-person-plus"></i>Sign Up
                   </button>

@@ -56,7 +56,7 @@ export default function ProductDetails() {
           <div className="row mb-4">
             <div className="col-12">
               {product && (
-                <Link to={`/products`} className="text-decoration-none">
+                <Link to={`/store/products`} className="text-decoration-none">
                   <button className="btn btn-link px-3 text-white border border-1 border-secondary-subtle rounded-pill  text-decoration-none">
                     <i className="bi bi-arrow-left me-2"></i>
                     <span>Back</span>
@@ -193,7 +193,7 @@ export default function ProductDetails() {
                 onClick={async () => {
                   const user = JSON.parse(localStorage.getItem("user") || "null");
                   if (!user) {
-                    window.location.href = "/login";
+                    window.location.href = "/store/login";
                     return;
                   }
                   if (!product) return;
