@@ -28,7 +28,7 @@ function App() {
           <Route path="store/login" element={<Login />} />
           <Route path="store/signup" element={<SignUp />} />
           <Route path="store/cart" element={<Cart />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="store/*" element={<NotFound />} />
         </Route>
       </Routes>
     </AuthProvider>
