@@ -57,4 +57,4 @@ store/
 ```
 ## 👤 Author
 - Developed with ❤️ by :-
-   Kerlos Amir , Ahmed Abd ElQaoy , Mohammed Khammes , Fatma Gomaa , Aya Ashreey
+   Kerlos Amir , Ahmed Abd El Kawi , Mohammed Khammes , Fatma Gomaa , Aya Ashreey
