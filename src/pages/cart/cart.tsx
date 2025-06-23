@@ -49,7 +49,7 @@ export default function CartPage() {
     localStorage.removeItem("cart");
     setCartItems([]);
     setIsEmpty(true);
-    navigate("/store/products");
+    navigate("/products");
   };
 
   return (

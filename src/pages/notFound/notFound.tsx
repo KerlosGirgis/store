@@ -50,7 +50,7 @@ export default function NotFound() {
       </svg>
       <button
         className="btn btn-primary btn-lg px-5 py-3 mt-5 rounded-4"
-        onClick={() => navigate("/store")}
+        onClick={() => navigate("/")}
       >
         Return to Earth (Home)
       </button>

@@ -193,7 +193,7 @@ export default function ProductDetails() {
                 onClick={async () => {
                   const user = JSON.parse(localStorage.getItem("user") || "null");
                   if (!user) {
-                    navigate("/store/login");
+                    navigate("/login");
                     return;
                   }
                   if (!product) return;

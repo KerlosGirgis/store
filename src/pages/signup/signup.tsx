@@ -37,7 +37,7 @@ export default function SignUp() {
     const signupSuccess = await signup(data.name, data.email, data.password);
     if (signupSuccess) {
       setSuccess(true);
-      navigate("/store/login");
+      navigate("/login");
     } else {
       setServerError("Failed to create account. Please try again.");
     }
@@ -72,7 +72,7 @@ export default function SignUp() {
             Already have an account?{" "}
             <button
               type="button"
-              onClick={() => navigate("/store/login")}
+              onClick={() => navigate("/login")}
               className="btn btn-link p-0 fw-semibold"
               style={{
                 color: "#A855F7",

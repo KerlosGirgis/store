@@ -36,14 +36,14 @@ export default function Login() {
     const loginSuccess = await login(data.email, data.password);
     if (loginSuccess) {
       setSuccess(true);
-      navigate("/store/products");
+      navigate("/products");
     } else {
       setError("Invalid credentials. Try: john@mail.com / changeme");
     }
   };
 
   const handleSignupClick = () => {
-    navigate("/store/signup");
+    navigate("/signup");
   };
 
   const handleDemoLogin = () => {
