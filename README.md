@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+# 🛍️ Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-v18-blue.svg)
+![Vite](https://img.shields.io/badge/Vite-fast-purple)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/github/license/KerlosGirgis/store)
+[![GitHub Pages](https://img.shields.io/badge/demo-live-blue)](https://kerlosgirgis.github.io/store/home)
 
-Currently, two official plugins are available:
+**Store** is a sleek and responsive e-commerce web application built with React and Vite. It offers a smooth shopping experience with product browsing, cart management, and a modern UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- ![Preview Screenshot](https://user-images.githubusercontent.com/123456789/your-screenshot.png) Replace this with actual screenshot URL -->
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Screenshots
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+| Home Page                           | Movie Details                        |
+|------------------------------------|--------------------------------------|
+| ![Home](screenshots/home.png) | ![Details](screenshots/products.png) |
+| ![Home](screenshots/details.png) | ![Home](screenshots/login.png) |
+
+
+
+## 🚀 Features
+
+- 🛒 Browse a variety of products with images, prices, and descriptions.
+- ➕ Add or remove items from the shopping cart.
+- 📄 View detailed information for each product.
+- 📱 Responsive design for desktop and mobile.
+- 🔁 Smooth client-side routing with `react-router-dom`.
+
+---
+
+## 🛠️ Technologies Used
+
+- [React](https://reactjs.org/) (v18)
+- [Vite](https://vitejs.dev/)
+- [React Router DOM](https://reactrouter.com/)
+- Bootstrap 5
+- TSX
+
+---
+
+## 📁 Folder Structure
+
+```bash
+store/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── README.md
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 👤 Author
+- Developed with ❤️ by :-
+   Kerlos Amir , Ahmed Abd ElQaoy , Mohammed Khammes , Fatma Gomaa , Aya Ashreey
